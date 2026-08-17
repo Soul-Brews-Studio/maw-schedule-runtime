@@ -1,0 +1,28 @@
+[workspace]
+members = [
+    "crates/maw-schedule-launchd",
+    "crates/maw-schedule-runner",
+]
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+license = "BUSL-1.1"
+repository = "https://github.com/Soul-Brews-Studio/maw-schedule-runtime"
+
+[workspace.dependencies]
+maw-schedule = { git = "https://github.com/Soul-Brews-Studio/maw-crates", rev = "e46932081dfd1a20bb962506086f1befe5525fa4" }
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+unwrap_used = "warn"
+expect_used = "warn"
+
+[profile.dev]
+debug = "line-tables-only"
+
+[profile.test]
+debug = "line-tables-only"
